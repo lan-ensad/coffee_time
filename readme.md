@@ -84,7 +84,7 @@ network={
 connect to Grafana UI in a web browser :
 
 ⚙️→ Data Sources → Add data source → "InfluxDB"
-&emsp; IDENTIFIER &emsp;|&emsp;VALUE|
+IDENTIFIER &emsp;|&emsp;VALUE|
 --|--|
 name |what you want|
 language        |InfluxQL                           |
