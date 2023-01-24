@@ -1,5 +1,17 @@
 # Coffee Machine
 
+In the decorative art school of Paris, we are almost 1K users for 1 coffee machine. You can imagine the length of the queue each time we want one.
+
+The idea is to monitor the activity of the machine to determine what is the best moment to go downstair.
+
+I choose to only track when the machine take some watter from to avoid privacy issues with cameras of microphones.
+
+So I plug ready-made for sensor with en ESP32. Connected to a InfluxDB install on a Raspberry Pi and connected to a ghost network over all the building.
+
+Then with Grafana i can embed the chart.
+
+The next step will be to train a model to predicte the ideal moment to take the coffee break.
+
 ## RaspberryPi
 
 ### Setup Wifi wlan0
