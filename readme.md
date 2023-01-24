@@ -94,7 +94,7 @@ User            |  go to influxdb → About → User ID |
 Password        | Password of this user             |
 HTTP Headers    | Add new|
 Header          | `Authorization`                   |
-Value           | `Token Wh_a6EjGQvkwvTaAeVE7qq                         AAvhYo4Z491ai25gtjjKoX_CV99zZ_zyBObn9SHKxaBwrPsfHRwCdos5tBAtgPu6g==`      |
+Value           | should be similar as : `Token Wh_a6EjGQvkwvTaAeVE7qq                         AAvhYo4Z491ai25gtjjKoX_CV99zZ_zyBObn9SHKxaBwrPsfHRwCdos5tBAtgPu6g==`      |
 Database        | < name of bucket >                |
 User            | go to influxdb → About → User ID  |
 Password        | Password of this user             |
