@@ -12,6 +12,10 @@ Then with Grafana i can embed the chart.
 
 The next step will be to train a model to predicte the ideal moment to take the coffee break.
 
+For the moment, the sensor send every 10 second `true` or `false` depending of the flow. In the future we can imagine better solution to track the activity.
+
+![web](_img/embed.png)
+
 ## RaspberryPi
 
 ### Setup Wifi wlan0
@@ -102,19 +106,15 @@ HTTP Methode    | `GET`                             |
 
 ### Embedded Grafana on Web Page
 
-**install certbot :**
-
-`sudo apt update && sudo apt install certbot python3-certbot-apache software-properties-common -y`
-
-
 **Setup Grafana :**
 
 allow anonymous connection
 
-`sudo nano /etc/grafana/grafana.ini --line` → ctrl+w `auth.anonymous`
+`sudo nano /etc/grafana/grafana.ini --line`
 
-`allow_embedding = true` → L.300
+L.300 → `allow_embedding = true`
 
+L.477 →
 ```
 [auth.anonymous]
 enabled = true
