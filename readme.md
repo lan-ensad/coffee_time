@@ -15,6 +15,7 @@ The next step will be to train a model to predicte the ideal moment to take the 
 For the moment, the sensor send every 10 second `true` or `false` depending of the flow. In the future we can imagine better solution to track the activity.
 
 ![web](_img/embed.png)
+![web](_img/flowmeter.jpg)
 
 ## RaspberryPi
 
