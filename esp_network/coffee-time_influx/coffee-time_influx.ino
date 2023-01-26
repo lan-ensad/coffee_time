@@ -11,15 +11,15 @@ ESP8266WiFiMulti wifiMulti;
 #include <InfluxDbClient.h>
 #include <InfluxDbCloud.h>
 
-const char* ssid = "PLANIF-SSI";
-const char* password = "Lmdpdeplanifssi";
+const char* ssid = "WIFI_SSID";
+const char* password = "WIFI_PASS";
 String hostname = "coffeTime";
-uint8_t newMac[] = { 0xE8, 0x68, 0xE7, 0x2E, 0x0A, 0x28 };
+uint8_t newMac[] = { 0xE8, 0x62, 0xE7, 0x23, 0x0A, 0x27 };
 
-#define INFLUXDB_URL "http://172.30.24.10:8086"
-#define INFLUXDB_TOKEN "Wh_a9EjGQvkwvTaAeVE8qqAAvhYo4Z491ai25gtjjKoX_CV7zZ_zyBObn9SHKxaBwrPsfGRwCdos5tBAtgPu6g=="
-#define INFLUXDB_ORG "7b6d1e9a54335701"
-#define INFLUXDB_BUCKET "first"
+#define INFLUXDB_URL "IP_ADDRESS:8086"
+#define INFLUXDB_TOKEN "LONG_STRING_TOKEN"
+#define INFLUXDB_ORG "ID_ORGA"
+#define INFLUXDB_BUCKET "BUCKET"
 #define TZ_INFO "CET-1CEST,M3.5.0,M10.5.0/3"
 
 InfluxDBClient client(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKEN, InfluxDbCloud2CACert);
