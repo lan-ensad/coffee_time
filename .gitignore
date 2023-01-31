@@ -1,6 +1,2 @@
-_samples/
-data/
-data_catcher/
-data_reader/
-liqui_flow/
-data.ods
+log.md
+coffe-ime_influx/*

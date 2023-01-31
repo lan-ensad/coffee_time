@@ -11,8 +11,8 @@ ESP8266WiFiMulti wifiMulti;
 #include <InfluxDbClient.h>
 #include <InfluxDbCloud.h>
 
-const char* ssid = "WIFI_SSID";
-const char* password = "WIFI_PASS";
+const char* ssid = "PLANIF-SSI";
+const char* password = "Lmdpdeplanifssi";
 String hostname = "coffeTime";
 uint8_t newMac[] = { 0xE8, 0x62, 0xE7, 0x23, 0x0A, 0x27 };
 
@@ -26,13 +26,15 @@ InfluxDBClient client(INFLUXDB_URL, INFLUXDB_ORG, INFLUXDB_BUCKET, INFLUXDB_TOKE
 
 Point sensor("coffee_machine");
 
-const int ASS = 36;  //Watter Sensor
-const int AS = 20;   //array size
-const int THRESHOLD = 3;
-const int BUFFERDEL = 2;  //delay befor fill each element in buff[]
-int state, prevstate;
+const int ASS = 36;       //Watter Sensor
+const int AS = 20;        //array size
+const int THRESHOLD = 2;  //number of different value need when arrays are compared ; high value is more sensible
+const int BUFFERDEL = 5;  //delay befor fill each element in buff[] more fast it is more sensible it will be
 int buff1[AS];
 int buff2[AS];
+bool turning = false;
+int on = 1;
+int off = 0;
 
 //————————————————————————————————
 //           FUNCTIONS
@@ -101,18 +103,35 @@ void loop() {
   sensor.clearFields();
   FillBuffer();
 
-  sensor.addField("coffee_machine", IsTurning());
-
-  Serial.print("Writing: ");
-  Serial.println(sensor.toLineProtocol());
-  // Serial.print("Value : ");
-  // Serial.println(IsTurning());
-
-  if (!client.writePoint(sensor)) {
-    Serial.print("InfluxDB write failed: ");
-    Serial.println(client.getLastErrorMessage());
+  if (IsTurning() && !turning) {
+    turning = true;
+    // Serial.print(millis());
+    // Serial.print("\t");
+    // Serial.println("ON");
+    sensor.addField("coffee_machine", on);
+    Serial.print("Writing: ");
+    Serial.println(sensor.toLineProtocol());
+    if (!client.writePoint(sensor)) {
+      Serial.print("InfluxDB write failed: ");
+      Serial.println(client.getLastErrorMessage());
+    }
+  } else if (!IsTurning() && turning) {
+    turning = false;
+    // Serial.print(millis());
+    // Serial.print("\t");
+    // Serial.println("OFF");
+    sensor.addField("coffee_machine", off);
+    Serial.print("Writing: ");
+    Serial.println(sensor.toLineProtocol());
+    if (!client.writePoint(sensor)) {
+      Serial.print("InfluxDB write failed: ");
+      Serial.println(client.getLastErrorMessage());
+    }
   }
 
-  Serial.println("Wait 10s");
-  delay(10000);
+  // sensor.addField("coffee_machine", IsTurning());
+  // Serial.print("Writing: ");
+  // Serial.println(sensor.toLineProtocol());
+
+  delay(100);
 }
