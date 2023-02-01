@@ -11,8 +11,8 @@ ESP8266WiFiMulti wifiMulti;
 #include <InfluxDbClient.h>
 #include <InfluxDbCloud.h>
 
-const char* ssid = "PLANIF-SSI";
-const char* password = "Lmdpdeplanifssi";
+const char* ssid = "WIFI_SSID";
+const char* password = "WIFI_PASS";
 String hostname = "coffeTime";
 uint8_t newMac[] = { 0xE8, 0x62, 0xE7, 0x23, 0x0A, 0x27 };
 
