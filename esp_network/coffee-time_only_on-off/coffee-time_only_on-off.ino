@@ -102,7 +102,6 @@ void setup() {
 void loop() {
   sensor.clearFields();
   FillBuffer();
-
   if (IsTurning() && !turning) {
     turning = true;
     // Serial.print(millis());
